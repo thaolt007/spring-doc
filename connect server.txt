@@ -1,0 +1,15 @@
+ssh -i keygcloud.pem hoangdev@35.227.94.249
+cd workspaces/coinbackend2/coinmarket/backend
+sudo chmod +x mvnw (trong backend)
+sudo nano ~/workspaces/coinbackend/coin-market/backend/src/main/java/vn/nccsoft/coinmarket/contracts/WalletGatewayApi.java
+sudo nano ~/workspaces/coinbackend/coin-market/backend/src/main/resources/config/application-dev.yml
+ps aux | grep back
+sudo kill 2280
+admin : 4kzaE47Q6gCzZdtT
+sudo screen -ls
+sudo screen -r ten-screen : vao screen
+sudo screen -S ten-screen -X quit : xoa screen
+sudo screen -S ten-screen -L : tao screen va tao log de xem
+sudo tail -f ten-file
+meta mask: normal ostrich mix senior spin citizen slot quit sell orbit federal peasant
+sudo lsof -t -i:8081 : xem thread nao dang chay tren port 8081

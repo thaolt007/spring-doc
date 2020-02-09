@@ -1,0 +1,118 @@
+entity UserProfile {
+	id Long,
+    name String,
+    userCode String,
+    identityNumber String,
+    birthday Instant,
+    gender Boolean,
+    address String,
+    phoneNumber String,
+    createdTime Instant,
+    modifiedTime Instant,
+}
+
+entity Place {
+	id Long,
+    name String,
+    address String,
+}
+
+entity Floor {
+	id Long,
+    name String,
+}
+
+entity Room {
+	id Long,
+    name String,
+    roomCode String,
+    stage Integer
+}
+
+entity Task {
+	id Long,
+    finished Boolean,
+    createdTime Instant,
+    modifiedTime Instant,
+}
+
+entity SubTask {
+	id Long,
+    name String,
+    createdTime Instant,
+    modifiedTime Instant
+}
+
+entity TaskActivity {
+	id Long,
+    status Boolean,
+    startTime Instant,
+    finishTime Instant
+}
+
+entity SubTaskActivity {
+	id Long,
+    status Boolean,
+    createdTime Instant,
+    finishTime Instant,
+}
+entity Review {
+	starNumber Integer,
+    review String,
+    createdTime Instant,
+    modifiedTime Instant,
+}
+
+entity Groups {
+	id Long,
+    name String,
+}
+
+entity Permission {
+	id Long,
+    name String,
+    level Integer,
+    parent Long,
+    path String,
+    activated Boolean
+}
+
+relationship ManyToOne {
+	Floor{place} to Place
+}
+
+relationship ManyToOne {
+	Room{floor} to Floor
+}
+
+relationship ManyToOne {
+	Task{room} to Room
+}
+
+relationship ManyToOne {
+	TaskActivity{task} to Task
+}
+
+relationship OneToOne {
+	TaskActivity{review} to Review
+}
+
+relationship ManyToOne {
+	SubTaskActivity{taskActivity} to TaskActivity
+}
+
+relationship ManyToOne {
+	SubTaskActivity{subTask} to SubTask
+}
+
+relationship ManyToMany {
+	Groups{permissions(id)} to Permission
+}
+
+
+dto * with mapstruct
+service all with serviceImpl
+paginate TaskActivity with pagination
+paginate SubTaskActivity with pagination
+paginate Review with pagination
+paginate Task with pagination
